@@ -1,0 +1,30 @@
+﻿@model WebApplication1.ViewModel.RandomodelViewModel
+@{
+    ViewBag.Title = "Rondom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{ 
+    var classname = Model.Customes.Count > 5 ? "Popular" : null;
+
+}
+
+<h2 class="@classname">@Model.Movie.Name</h2>
+@if (Model.Customes.Count == 0)
+{
+    <text> No one has rented this movie before </text>
+}
+else
+{
+
+    <ul>
+        @foreach (var cutomer in Model.Customes)
+        {
+            <li>@cutomer.Name</li>
+        }
+    </ul>
+}
+
+
+
